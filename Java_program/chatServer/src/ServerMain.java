@@ -1,10 +1,7 @@
-package com.muc;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 
 /**
  * Created by Karan on 19/08/2021
@@ -17,16 +14,19 @@ public class ServerMain {
         try {
             ServerSocket serverSocket = new ServerSocket(port);
             while (true) {
-                //System.out.println("About to accept client connection...");
+                System.out.println("About to accept client connection...");
                 Socket clientSocket = serverSocket.accept();
-                //System.out.println("Accepted connection form " + clientSocket);
-                OutputStream outputStream = clientSocket.getOutputStream();
-                outputStream.write("This is a sample notice\n".getBytes());
-                clientSocket.close();
+
+                System.out.println("Accepted connection form " + clientSocket);
+                ServerWorker worker = new ServerWorker(clientSocket);
+                worker.start();
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
+
+
 }
