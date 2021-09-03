@@ -1,0 +1,8 @@
+Summary:
+
+    * ServerSocket --> accept() connection
+    * Socket (client)
+        -->getOutputStream()
+        -->getInputStream()
+    * Worker thread to handle client connections
+    * Accept multiple connections
