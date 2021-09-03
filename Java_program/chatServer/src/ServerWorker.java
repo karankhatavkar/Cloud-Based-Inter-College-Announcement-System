@@ -1,6 +1,12 @@
 import java.io.*;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+
+/**
+ * Created by Karan on 02/09/2021
+ */
 
 public class ServerWorker extends Thread{
 
@@ -8,6 +14,7 @@ public class ServerWorker extends Thread{
     private final Server server;
     private String userId = null;
     private OutputStream outputStream;
+    private HashSet<String> topicSet = new HashSet<>();
 
 
     public ServerWorker(Server server, Socket clientSocket) {
@@ -44,6 +51,10 @@ public class ServerWorker extends Thread{
                 }else if ("message".equalsIgnoreCase(cmd)){
                     String[] tokenMessage = line.split("\\s+" , 3);
                     if(tokenMessage.length == 3) { handleMessage(tokenMessage); }
+                } else if ("join".equalsIgnoreCase(cmd)){
+                    handleJoin(tokens);
+                } else if ("leave".equalsIgnoreCase(cmd)){
+                    handleLeave(tokens);
                 }
                 else {
                     String msg = "Unknown " + cmd + "\n";
@@ -72,7 +83,8 @@ public class ServerWorker extends Thread{
             String password = tokens[2];
 
             if((login.equals("guest") && password.equals("guest"))
-                    || (login.equals("pam") && password.equals("waste"))){
+                    || (login.equals("pam") && password.equals("pam"))
+                    || (login.equals("jim") && password.equals("jim"))){
                 String msg = "ok login";
                 outputStream.write(msg.getBytes());
                 this.userId = login;
@@ -106,19 +118,49 @@ public class ServerWorker extends Thread{
         }
     }
 
+    private void handleJoin(String[] tokens) {
+        if(tokens.length >1){
+            String topic = tokens[1];
+            //storing the membership of user to the topic
+            //add topic to topic set
+            topicSet.add(topic);
+        }
+    }
+
+    public boolean isMemberOfTopic(String topic){
+        return topicSet.contains(topic);
+    }
+
 
     //format : "message" "userId" "Body" ....
     //format : "message" "#topic" "Body" ....
+
     private void handleMessage(String[] tokens) throws IOException{
         String sendTo = tokens[1];
         String body = tokens[2];
 
+        boolean isTopic = sendTo.charAt(0) == '#';
+
         List<ServerWorker> workerList = server.getWorkerList();
         for (ServerWorker worker : workerList){
-            if(sendTo.equalsIgnoreCase(worker.getUserId())){
-                String outMessage = "From " + this.userId + " : " + "To " + sendTo + " : " + body + "\n";
-                worker.send(outMessage);
+            if(isTopic){
+                if(worker.isMemberOfTopic(sendTo) && this.isMemberOfTopic(sendTo)){
+                    String outMessage = "From " + this.userId + " : " + "To " + sendTo + " : " + body + "\n";
+                    worker.send(outMessage);
+                }
+
+            }else {
+                if(sendTo.equalsIgnoreCase(worker.getUserId())){
+                    String outMessage = "From " + this.userId + " : " + "To " + sendTo + " : " + body + "\n";
+                    worker.send(outMessage);
+                }
             }
+        }
+    }
+    private void handleLeave(String[] tokens) {
+        if(tokens.length>1){
+            String topic = tokens[1];
+            topicSet.remove(topic);
         }
     }
 
