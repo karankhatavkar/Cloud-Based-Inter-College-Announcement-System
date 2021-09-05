@@ -1,6 +1,7 @@
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.*;
 import java.net.Socket;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -27,7 +28,9 @@ public class ServerWorker extends Thread{
     public void run() {
         try {
             handleClientSocket();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -40,8 +43,8 @@ public class ServerWorker extends Thread{
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = reader.readLine()) != null){
-            String[] tokens = line.split("\\s+");
-            if(tokens.length>0) {
+            String[] tokens = StringUtils.split(line);
+            if(tokens != null && tokens.length>0) {
                 String cmd = tokens[0];
                 if ("logoff".equals(cmd) || "quit".equalsIgnoreCase(cmd)) {
                     handleLogoff();
@@ -49,7 +52,7 @@ public class ServerWorker extends Thread{
                 }else if ("login".equalsIgnoreCase(cmd)){
                     handleLogin(outputStream, tokens);
                 }else if ("message".equalsIgnoreCase(cmd)){
-                    String[] tokenMessage = line.split("\\s+" , 3);
+                    String[] tokenMessage = StringUtils.split(line, null, 3);
                     if(tokenMessage.length == 3) { handleMessage(tokenMessage); }
                 } else if ("join".equalsIgnoreCase(cmd)){
                     handleJoin(tokens);
@@ -84,8 +87,10 @@ public class ServerWorker extends Thread{
 
             if((login.equals("guest") && password.equals("guest"))
                     || (login.equals("pam") && password.equals("pam"))
-                    || (login.equals("jim") && password.equals("jim"))){
-                String msg = "ok login";
+                    || (login.equals("dwight") && password.equals("dwight"))
+                    || (login.equals("jim") && password.equals("jim"))
+                    || (login.equals("michael") && password.equals("michael"))) {
+                String msg = "ok login\n";
                 outputStream.write(msg.getBytes());
                 this.userId = login;
                 System.out.println("User logged in successfully : " + userId);
@@ -114,6 +119,7 @@ public class ServerWorker extends Thread{
             else {
                 String msg = "error login";
                 outputStream.write(msg.getBytes());
+                System.err.println("Login failed for " + userId );
             }
         }
     }
@@ -177,6 +183,5 @@ public class ServerWorker extends Thread{
         server.removeWorker(this);
         clientSocket.close();
     }
-
 
 }
