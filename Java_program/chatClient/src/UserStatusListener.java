@@ -1,4 +1,4 @@
 public interface UserStatusListener {
-    public void online(String userId);
-    public void offline(String userId);
+    public void online(String login);
+    public void offline(String login);
 }
