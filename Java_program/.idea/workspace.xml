@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="303b2bb9-8063-45a0-a5cf-2919b35c11be" name="Default Changelist" comment="5th Sept">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatClient/src/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/src/LoginWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatClient/src/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/src/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chatClient/src/UserListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/src/UserListPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chatClient/LoginWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chatClient/LoginWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chatClient/LoginWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chatClient/LoginWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chatClient/LoginWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chatClient/LoginWindow.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +125,7 @@
       <workItem from="1633114906056" duration="18000" />
       <workItem from="1633153672395" duration="2246000" />
       <workItem from="1633428913174" duration="3251000" />
+      <workItem from="1633453639280" duration="2784000" />
     </task>
     <task id="LOCAL-00001" summary="5th Sept">
       <created>1630822389068</created>

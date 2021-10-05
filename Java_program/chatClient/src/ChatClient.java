@@ -67,6 +67,11 @@ public class ChatClient {
         serverOut.write(cmd.getBytes());
     }
 
+    public void join(String topic) throws IOException {
+        String cmd = "join #"+ topic + "\n";
+        serverOut.write(cmd.getBytes());
+    }
+
     public boolean login(String login, String password) throws IOException {
         String cmd = "login " + login + " " + password + "\n";
         serverOut.write(cmd.getBytes());

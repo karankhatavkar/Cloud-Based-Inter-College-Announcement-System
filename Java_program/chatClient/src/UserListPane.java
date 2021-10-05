@@ -28,14 +28,18 @@ public class UserListPane extends JPanel implements UserStatusListener{
         joinButton.setBackground(Color.red);
         groupField.setBackground(Color.lightGray);
 
+
         setLayout(new BorderLayout());
+
+
+
+
         //add(new JScrollPane(userListUI), BorderLayout.CENTER);      //old
         //add(inputField,BorderLayout.SOUTH);       //old
 
-        //new placement with joining button
-        add(new JScrollPane(userListUI), BorderLayout.PAGE_START);
-        add(groupField,BorderLayout.CENTER);
-        add(joinButton,BorderLayout.PAGE_END);
+        add(new JScrollPane(userListUI), BorderLayout.CENTER);
+        add(groupField,BorderLayout.PAGE_START);
+        add(joinButton,BorderLayout.LINE_END);
 
         joinButton.addActionListener(new ActionListener() {
             @Override
@@ -64,8 +68,19 @@ public class UserListPane extends JPanel implements UserStatusListener{
     }
 
     private void joinGroup() {
-        String topic = "#"+groupField.getText();
-
+        try {
+            String topic = groupField.getText();
+            if(topic.length()<1){
+                JOptionPane.showMessageDialog(this,"Please Enter The Topic Name");
+            }
+            else {
+                client.join(topic);
+                userListModel.addElement("#" + topic);
+                groupField.setText("");
+            }
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
