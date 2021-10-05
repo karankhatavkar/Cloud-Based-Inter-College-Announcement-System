@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.IOException;
 
 /**
@@ -16,6 +14,9 @@ public class UserListPane extends JPanel implements UserStatusListener{
     private final ChatClient client;
     private JList<String> userListUI;
     private DefaultListModel<String> userListModel;
+    private JTextField groupField = new JTextField();
+    JButton joinButton = new JButton("JOIN");
+
 
     public UserListPane(ChatClient client) {
         this.client = client;
@@ -23,9 +24,25 @@ public class UserListPane extends JPanel implements UserStatusListener{
 
         userListModel = new DefaultListModel<>();
         userListUI = new JList<>(userListModel);
-        setLayout(new BorderLayout());
-        add(new JScrollPane(userListUI), BorderLayout.CENTER);
 
+        joinButton.setBackground(Color.red);
+        groupField.setBackground(Color.lightGray);
+
+        setLayout(new BorderLayout());
+        //add(new JScrollPane(userListUI), BorderLayout.CENTER);      //old
+        //add(inputField,BorderLayout.SOUTH);       //old
+
+        //new placement with joining button
+        add(new JScrollPane(userListUI), BorderLayout.PAGE_START);
+        add(groupField,BorderLayout.CENTER);
+        add(joinButton,BorderLayout.PAGE_END);
+
+        joinButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                joinGroup();
+            }
+        });
 
 
         userListUI.addMouseListener(new MouseAdapter() {
@@ -43,6 +60,11 @@ public class UserListPane extends JPanel implements UserStatusListener{
                 }
             }
         });
+
+    }
+
+    private void joinGroup() {
+        String topic = "#"+groupField.getText();
 
     }
 

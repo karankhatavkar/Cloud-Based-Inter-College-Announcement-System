@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="303b2bb9-8063-45a0-a5cf-2919b35c11be" name="Default Changelist" comment="5th Sept">
-      <change afterPath="$PROJECT_DIR$/../.idea/Cloud-Based-Inter-College-Announcement-System.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_lang3_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chatClient/src/LoginWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chatClient/src/MessagePane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-lang3-3.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/logback-classic-1.1.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/logback-core-1.1.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chatClient/ChatClient$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chatClient/ChatClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chatClient/MessageListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chatClient/UserStatusListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_program.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java_program.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatClient/chatClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/chatClient.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatClient/src/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/src/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatClient/src/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/src/MessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatClient/src/UserStatusListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/src/UserStatusListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatClient/src/chatMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatClient/src/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/src/LoginWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatClient/src/UserListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatClient/src/UserListPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chatClient/LoginWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chatClient/LoginWindow$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chatClient/LoginWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chatClient/LoginWindow$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chatClient/LoginWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chatClient/LoginWindow.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +50,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.LoginWindow">
+  <component name="RunManager" selected="Application.UserListPane">
     <configuration name="ChatClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatClient" />
       <module name="chatClient" />
@@ -114,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginWindow" />
         <item itemvalue="Application.UserListPane" />
+        <item itemvalue="Application.LoginWindow" />
         <item itemvalue="Application.ServerMain (1)" />
         <item itemvalue="Application.ChatClient" />
         <item itemvalue="Application.ServerMain" />
@@ -144,7 +124,10 @@
       <workItem from="1632974367435" duration="1055000" />
       <workItem from="1632996474683" duration="669000" />
       <workItem from="1633070292193" duration="8258000" />
-      <workItem from="1633084494741" duration="1836000" />
+      <workItem from="1633084494741" duration="4676000" />
+      <workItem from="1633114906056" duration="18000" />
+      <workItem from="1633153672395" duration="2246000" />
+      <workItem from="1633428913174" duration="3251000" />
     </task>
     <task id="LOCAL-00001" summary="5th Sept">
       <created>1630822389068</created>
